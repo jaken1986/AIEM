@@ -363,7 +363,7 @@ services:
        - MYSQL_ROOT_PASSWORD=Optiv@dm1n
        - MYSQL_DATABASE=gogs
     volumes:
-    - /data/gogs/mysql/:/var/lib/mysql/
+    - mysql-data:/var/lib/mysql/
     labels:
       io.rancher.scheduler.affinity:host_label: repo=1
     tty: true
@@ -371,7 +371,8 @@ services:
   gogs:
     image: gogs/gogs:latest
     volumes:
-    - /data/gogs/conf:/data/gogs/conf/
+    - gogs-conf:/data/gogs/conf
+    - gogs-data:/app/gogs
     links:
     - mysql:database
     labels:
