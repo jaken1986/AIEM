@@ -30,9 +30,9 @@ services:
   msa-volume:
     build: https://github.com/siemonster/project-free.git#master:containers/msa-volume
     stdin_open: true
-    tty: true
     volumes:
     - msa-data:/var/lib/mongodb
+    tty: true
     command: /bin/bash
     labels:
       io.rancher.scheduler.affinity:host_label_soft: capricorn=1
@@ -235,3 +235,190 @@ services:
     volumes:
     - /opt/containers/${SITE_DNAME}/var/www:/var/www:ro
     image: trinitronx/python-simplehttpserver
+    
+  elastalert:
+    image: ivankrizsan/elastalert
+    environment:
+      SET_CONTAINER_TIMEZONE: true
+      CONTAINER_TIMEZONE: America/Chicago
+    volumes:
+    - elastalert-d01-data:/opt/config
+    - elastalert-d01-rules:/opt/rules
+    - elastalert-d01-logs:/opt/logs
+    links:
+    - elastic-m02:elasticsearchhost
+    tty: true
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-3=1
+      
+  elastic-m01:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 4g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-m01-config:/etc/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-1=1
+      
+  elastic-m02:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 4g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-m02-config:/etc/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-3=1
+      
+  elastic-i01:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 4g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-i01-config:/etc/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: ingest=1
+      
+  elastic-d01:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 16g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-d01-config:/etc/elasticsearch
+    - elastic-d01-data:/var/lib/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-2=1
+      
+  elastic-d02:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 16g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-d02-config:/etc/elasticsearch
+    - elastic-d02-data:/var/lib/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-4=1
+      
+  elastic-d03:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 16g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-d03-config:/etc/elasticsearch
+    - elastic-d03-data:/var/lib/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-5=1
+      
+  kibana-d01:
+    image: sebp/elk
+    environment:
+      ELASTICSEARCH_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - kibana-d01-data:/opt/kibana
+    labels:
+      io.rancher.scheduler.affinity:host_label: dash-2=1
+      
+  logstash-d01:
+    image: sebp/elk
+    environment:
+      ELASTICSEARCH_START: 0
+      KIBANA_START: 0
+      LS_HEAP_SIZE: 2g
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - logstash-i01-config:/etc/logstash
+    labels:
+      io.rancher.scheduler.affinity:host_label: ingest=1
+ 
+  mysql:
+    image: mysql:latest
+    environment:
+       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
+       - MYSQL_DATABASE=gogs
+    volumes:
+    - /data/gogs/mysql/:/var/lib/mysql/
+    labels:
+      io.rancher.scheduler.affinity:host_label: repo=1
+    tty: true
+
+  gogs:
+    image: gogs/gogs:latest
+    volumes:
+    - /data/gogs/conf:/data/gogs/conf/
+    links:
+    - mysql:database
+    labels:
+      io.rancher.scheduler.affinity:host_label: repo=1
+    tty: true
+    
+  registry:
+    image: registry:latest
+    ports:
+    - 5000:5000
+    tty: true
+
+  elasticsearch:
+    image: elasticsearch:2
+    volumes:
+    - dev-threat-data:/usr/share/elasticsearch/data
+    command: [
+      -Des.script.inline=on,
+      -Des.cluster.name=hive,
+      -Des.threadpool.index.queue_size=100000,
+      -Des.threadpool.search.queue_size=100000,
+      -Des.threadpool.bulk.queue_size=1000]
+    labels:
+      io.rancher.scheduler.affinity:host_label: threat=1
+
+  cortex:
+    image: certbdf/cortex:latest
+    labels:
+      io.rancher.scheduler.affinity:host_label: threat=1
+
+  thehive:
+    image: certbdf/thehive:latest
+    volumes: 
+    - dev-threat-conf:/etc/thehive/application.conf
+    depends_on:
+      - elasticsearch
+      - cortex
+    labels:
+      io.rancher.scheduler.affinity:host_label: threat=1
+
+  skedler:
+    image: cogniteev/oracle-java
+    volumes:
+    - skedler-data:/home
+    depends_on:
+      - elastic-m02
+      - kibana-d01
+    labels:
+      io.rancher.scheduler.affinity:host_label: space=1
+    tty: true
