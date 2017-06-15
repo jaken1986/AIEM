@@ -420,5 +420,5 @@ services:
       - elastic-m02
       - kibana-d01
     labels:
-      io.rancher.scheduler.affinity:host_label: space=1
+      io.rancher.scheduler.affinity:host_label: report=1
     tty: true
