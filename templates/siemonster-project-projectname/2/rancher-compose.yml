@@ -40,3 +40,78 @@ msa-volume:
 heaven-backend:
   scale: 1
   retain_ip: true
+
+elastalert:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+ 
+elastic-m01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-m02:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-i01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-d01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-d02:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-d03:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+kibana-d01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+logstash-d01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+  
+mysql:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+  
+gogs:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+
+registry:
+    scale: 1
+    retain_ip: true
+    start_on_create: true
+
+elasticsearch:
+    scale: 1
+    retain_ip: true
+    start_on_create: true
+
+cortex:
+    scale: 1
+    retain_ip: true
+    start_on_create: true
+
+thehive:
+    scale: 1
+    retain_ip: true
+    start_on_create: true
