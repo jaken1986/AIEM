@@ -367,6 +367,8 @@ services:
     ports:
     - 5000:5000
     tty: true
+    labels:
+      io.rancher.scheduler.affinity:host_label: hub=1
 
   elasticsearch:
     image: elasticsearch:2
