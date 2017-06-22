@@ -421,18 +421,18 @@ services:
       io.rancher.scheduler.affinity:host_label: report=1
     tty: true
 
-mongodb:
-  image: mongo
-  volumes:
+  mongodb:
+    image: mongo
+    volumes:
     - mongodb-data:/data/db
-  tty: true
-  labels:
+    tty: true
+    labels:
       io.rancher.scheduler.affinity:host_label: search=1
 
-slamdata:
-  image: ocasta/slamdata
-  volumes:
+  slamdata:
+    image: ocasta/slamdata
+    volumes:
     - slamdata-config:/root/.config/quasar
-  tty: true
-  labels:
+    tty: true
+    labels:
       io.rancher.scheduler.affinity:host_label: search=1
