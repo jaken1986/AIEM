@@ -1,6 +1,6 @@
 .catalog:
   version: "4.1.0"
-  minimum_rancher_version: 1.5.1
+  minimum_rancher_version: v1.6.2
   questions:
     - variable: SITE_DNAME
       description: Specify the domain name of the site.
