@@ -360,10 +360,10 @@ services:
   mysql:
     image: mysql:latest
     environment:
-       - MYSQL_ROOT_PASSWORD=tyHX!BLdXT8!
+       - MYSQL_ROOT_PASSWORD=fmPR7UuMBmKPV6Ps
        - MYSQL_DATABASE=gogs
        - MYSQL_USER=optivadmin
-       - MYSQL_PASSWORD=W+c#@qJ5Z-X=
+       - MYSQL_PASSWORD=8waK9KZOJk1G3OXf
     volumes:
     - /data/gogs/mysql/:/var/lib/mysql/
     labels:
