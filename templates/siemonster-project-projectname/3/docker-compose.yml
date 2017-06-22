@@ -354,6 +354,8 @@ services:
       TZ: America/Chicago
     volumes:
     - logstash-i01-config:/etc/logstash
+    ports:
+    - 5044:5044
     labels:
       io.rancher.scheduler.affinity:host_label: ingest=1
  
