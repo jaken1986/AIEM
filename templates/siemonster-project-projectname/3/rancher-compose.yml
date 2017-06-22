@@ -96,11 +96,6 @@ gogs:
   retain_ip: true
   start_on_create: true
 
-registry:
-    scale: 1
-    retain_ip: true
-    start_on_create: true
-
 elasticsearch:
     scale: 1
     retain_ip: true
@@ -112,6 +107,16 @@ cortex:
     start_on_create: true
 
 thehive:
+    scale: 1
+    retain_ip: true
+    start_on_create: true
+	
+mongodb:
+    scale: 1
+    retain_ip: true
+    start_on_create: true
+
+slamdata:
     scale: 1
     retain_ip: true
     start_on_create: true
