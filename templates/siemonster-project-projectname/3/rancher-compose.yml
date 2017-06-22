@@ -110,7 +110,7 @@ thehive:
     scale: 1
     retain_ip: true
     start_on_create: true
-	
+
 mongodb:
     scale: 1
     retain_ip: true
