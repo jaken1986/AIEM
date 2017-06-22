@@ -374,6 +374,7 @@ services:
     image: gogs/gogs:latest
     volumes:
     - /data/gogs/conf:/data/gogs/conf/
+    - gogs-data:/app/gogs/
     links:
     - mysql:database
     labels:
