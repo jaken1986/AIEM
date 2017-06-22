@@ -402,7 +402,7 @@ services:
   thehive:
     image: certbdf/thehive:latest
     volumes: 
-    - dev-threat-conf:/etc/thehive/application.conf
+    - dev-threat-conf:/etc/thehive
     ports:
     - 9000:9000
     depends_on:
