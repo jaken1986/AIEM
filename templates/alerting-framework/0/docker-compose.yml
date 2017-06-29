@@ -7,8 +7,6 @@
     - elastalert-d01-data:/opt/config
     - elastalert-d01-rules:/opt/rules
     - elastalert-d01-logs:/opt/logs
-    links:
-    - elastic-m02:elasticsearchhost
     tty: true
     labels:
       io.rancher.scheduler.affinity:host_label: data-3=1
