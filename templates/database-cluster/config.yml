@@ -1,4 +1,4 @@
 name: "Database Cluster Module"
-description: "Elasticsearch Distributed Database for Operations Portal"
+description: "Elasticsearch Distributed Application"
 version: "1.0.0"
 category: Application

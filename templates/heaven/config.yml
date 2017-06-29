@@ -1,4 +1,4 @@
 name: "Optiv Proxy Module"
-description: "HTTP balancer Module for Operations Portal."
+description: "HTTP Load Balancer Application."
 category: Utils
 version: 1
