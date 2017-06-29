@@ -1,3 +1,6 @@
+version: '2'
+services:
+
   elasticsearch:
     image: elasticsearch:2
     volumes:
