@@ -13,7 +13,7 @@ services:
     - elastic-i01-config:/etc/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: ingest=1
-	  
+
   logstash-d01:
     image: sebp/elk
     environment:
