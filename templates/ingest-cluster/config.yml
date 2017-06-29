@@ -1,0 +1,4 @@
+name: "Log Ingestion Module"
+description: "Log Ingestion Module for Operations Portal"
+version: "1.0.0"
+category: Application

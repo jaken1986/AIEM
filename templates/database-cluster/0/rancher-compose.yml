@@ -1,0 +1,30 @@
+version: '2'
+.catalog:
+  version: "1.0.0"
+  minimum_rancher_version: v1.6.2
+
+elastic-m01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-m02:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-d01:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-d02:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    
+elastic-d03:
+  scale: 1
+  retain_ip: true
+  start_on_create: true
+    

@@ -1,0 +1,4 @@
+name: "Alerting Module"
+description: "Alerting Module for Operations Portal"
+version: "1.0.0"
+category: Application

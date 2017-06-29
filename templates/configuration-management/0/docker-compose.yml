@@ -1,0 +1,25 @@
+version: '2'
+services:
+ 
+  mysql:
+    image: mysql:latest
+    environment:
+       - MYSQL_ROOT_PASSWORD=fmPR7UuMBmKPV6Ps
+       - MYSQL_DATABASE=gogs
+       - MYSQL_USER=optivadmin
+       - MYSQL_PASSWORD=8waK9KZOJk1G3OXf
+    volumes:
+    - mysql-data:/var/lib/mysql/
+    labels:
+      io.rancher.scheduler.affinity:host_label: repo=1
+    tty: true
+
+  gogs:
+    image: gogs/gogs:latest
+    volumes:
+    - gogs-data:/data/gogs/conf/
+    links:
+    - mysql:database
+    labels:
+      io.rancher.scheduler.affinity:host_label: repo=1
+    tty: true

@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+slamdb:
+  image: mongo
+  volumes:
+    - mongodb-data:/data/db
+  tty: true
+  labels:
+      io.rancher.scheduler.affinity:host_label: search=1
+
+slamdata:
+  image: ocasta/slamdata
+  volumes:
+    - slamdata-config:/root/.config/quasar
+  tty: true
+  labels:
+      io.rancher.scheduler.affinity:host_label: search=1

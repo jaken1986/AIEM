@@ -1,4 +1,5 @@
-name: "Optiv Security"
-description: "Automated Incident and Event Management Framework."
-version: "4.1.0"
+name: "Operations Portal Module"
+description: "Operations Portal Module"
+version: "1.0.0"
 category: Application
+

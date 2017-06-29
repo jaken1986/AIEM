@@ -1,0 +1,13 @@
+version: '2'
+services:
+
+  skedler:
+    image: cogniteev/oracle-java
+    volumes:
+    - skedler-data:/home
+    depends_on:
+      - elastic-m02
+      - kibana-d01
+    labels:
+      io.rancher.scheduler.affinity:host_label: report=1
+    tty: true

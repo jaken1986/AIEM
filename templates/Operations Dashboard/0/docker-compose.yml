@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  kibana-d01:
+    image: sebp/elk
+    environment:
+      ELASTICSEARCH_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - kibana-d01-data:/opt/kibana
+    labels:
+      io.rancher.scheduler.affinity:host_label: dash-2=1
