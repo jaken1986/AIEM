@@ -7,8 +7,6 @@ services:
     tty: true
     labels:
       io.rancher.scheduler.affinity:host_label: search=1
-    networks:
-      - aiem
 
   slamdata:
     image: ocasta/slamdata
@@ -17,5 +15,3 @@ services:
     tty: true
     labels:
       io.rancher.scheduler.affinity:host_label: search=1
-    networks:
-      - aiem
