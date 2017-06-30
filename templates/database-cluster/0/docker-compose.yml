@@ -13,8 +13,6 @@ services:
     - elastic-m01-config:/etc/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: data-1=1
-    networks:
-      - aiem
       
   elastic-m02:
     image: sebp/elk
@@ -28,8 +26,6 @@ services:
     - elastic-m02-config:/etc/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: data-3=1
-    networks:
-      - aiem
       
   elastic-d01:
     image: sebp/elk
@@ -44,8 +40,6 @@ services:
     - elastic-d01-data:/var/lib/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: data-2=1
-    networks:
-      - aiem
       
   elastic-d02:
     image: sebp/elk
@@ -60,8 +54,6 @@ services:
     - elastic-d02-data:/var/lib/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: data-4=1
-    networks:
-      - aiem
       
   elastic-d03:
     image: sebp/elk
@@ -76,5 +68,3 @@ services:
     - elastic-d03-data:/var/lib/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: data-5=1
-    networks:
-      - aiem
