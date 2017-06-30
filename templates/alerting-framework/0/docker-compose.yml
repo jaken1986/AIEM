@@ -12,8 +12,6 @@ services:
     - elastalert-d01-logs:/opt/logs
     networks:
       - aiem
-    links:
-    - elastic-m02:elasticsearchhost
     tty: true
     labels:
       io.rancher.scheduler.affinity:host_label: data-3=1
