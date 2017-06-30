@@ -34,5 +34,8 @@ services:
       - cortex
     labels:
       io.rancher.scheduler.affinity:host_label: threat=1
+<<<<<<< HEAD
     networks:
       - aiem
+=======
+>>>>>>> origin/master
