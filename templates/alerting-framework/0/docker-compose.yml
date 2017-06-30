@@ -10,6 +10,9 @@ services:
     - elastalert-d01-data:/opt/config
     - elastalert-d01-rules:/opt/rules
     - elastalert-d01-logs:/opt/logs
+    environment:
+    - ELASTICSEARCH_HOST=elastic-m02.database-cluster
+    - ELASTICSEARCH_PORT=9200
     tty: true
     labels:
       io.rancher.scheduler.affinity:host_label: data-3=1
