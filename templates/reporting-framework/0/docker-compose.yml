@@ -11,5 +11,3 @@ services:
     labels:
       io.rancher.scheduler.affinity:host_label: report=1
     tty: true
-    networks:
-      - aiem
