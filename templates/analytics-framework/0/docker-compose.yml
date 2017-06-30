@@ -1,19 +1,21 @@
-slamdb:
-  image: mongo
-  volumes:
+version: '2'
+services:
+  slamdb:
+    image: mongo
+    volumes:
     - mongodb-data:/data/db
-  tty: true
-  labels:
+    tty: true
+    labels:
       io.rancher.scheduler.affinity:host_label: search=1
-  networks:
+    networks:
       - aiem
 
-slamdata:
-  image: ocasta/slamdata
-  volumes:
+  slamdata:
+    image: ocasta/slamdata
+    volumes:
     - slamdata-config:/root/.config/quasar
-  tty: true
-  labels:
+    tty: true
+    labels:
       io.rancher.scheduler.affinity:host_label: search=1
-  networks:
-      - aiem
+    networks:
+     - aiem
