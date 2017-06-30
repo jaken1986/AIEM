@@ -13,11 +13,15 @@ services:
       -Des.threadpool.bulk.queue_size=1000]
     labels:
       io.rancher.scheduler.affinity:host_label: threat=1
+    networks:
+      - aiem
 
   cortex:
     image: certbdf/cortex:latest
     labels:
       io.rancher.scheduler.affinity:host_label: threat=1
+    networks:
+      - aiem
 
   thehive:
     image: certbdf/thehive:latest
@@ -30,3 +34,5 @@ services:
       - cortex
     labels:
       io.rancher.scheduler.affinity:host_label: threat=1
+    networks:
+      - aiem

@@ -13,4 +13,6 @@ heaven-frontend:
   tty: true
   image: ikuturso/heaven
   stdin_open: true
+  networks:
+      - aiem
 

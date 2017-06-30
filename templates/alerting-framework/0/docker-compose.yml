@@ -7,6 +7,8 @@
     - elastalert-d01-data:/opt/config
     - elastalert-d01-rules:/opt/rules
     - elastalert-d01-logs:/opt/logs
+    networks:
+      - aiem
     links:
     - elastic-m02:elasticsearchhost
     tty: true
