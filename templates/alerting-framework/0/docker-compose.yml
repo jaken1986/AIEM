@@ -1,19 +1,19 @@
-  version: '2'
-  services:
+version: '2'
+services:
   
-    elastalert:
-      image: ivankrizsan/elastalert
-      environment:
-        SET_CONTAINER_TIMEZONE: true
-        CONTAINER_TIMEZONE: America/Chicago
-      volumes:
-      - elastalert-d01-data:/opt/config
-      - elastalert-d01-rules:/opt/rules
-      - elastalert-d01-logs:/opt/logs
-      networks:
-        - aiem
-      links:
-      - elastic-m02:elasticsearchhost
-      tty: true
-      labels:
-        io.rancher.scheduler.affinity:host_label: data-3=1
+  elastalert:
+    image: ivankrizsan/elastalert
+    environment:
+      SET_CONTAINER_TIMEZONE: true
+      CONTAINER_TIMEZONE: America/Chicago
+    volumes:
+    - elastalert-d01-data:/opt/config
+    - elastalert-d01-rules:/opt/rules
+    - elastalert-d01-logs:/opt/logs
+    networks:
+      - aiem
+    links:
+    - elastic-m02:elasticsearchhost
+    tty: true
+    labels:
+      io.rancher.scheduler.affinity:host_label: data-3=1
