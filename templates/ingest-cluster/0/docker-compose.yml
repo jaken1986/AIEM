@@ -13,8 +13,6 @@ services:
     - elastic-i01-config:/etc/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: ingest=1
-    networks:
-      - aiem
 
   logstash-d01:
     image: sebp/elk
@@ -28,5 +26,3 @@ services:
     - logstash-i01-config:/etc/logstash
     labels:
       io.rancher.scheduler.affinity:host_label: ingest=1
-    networks:
-      - aiem
