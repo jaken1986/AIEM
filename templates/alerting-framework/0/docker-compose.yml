@@ -1,5 +1,6 @@
   version: '2'
   services:
+  
     elastalert:
       image: ivankrizsan/elastalert
       environment:
