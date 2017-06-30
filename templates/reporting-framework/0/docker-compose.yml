@@ -6,8 +6,8 @@ services:
     volumes:
     - skedler-data:/home
     depends_on:
-      - elastic-m02
-      - kibana-d01
+      - elastic-m02.database-cluster
+      - kibana-d01.operations-dashboard
     labels:
       io.rancher.scheduler.affinity:host_label: report=1
     tty: true
