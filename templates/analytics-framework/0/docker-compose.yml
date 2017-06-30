@@ -1,6 +1,6 @@
 version: '2'
 services:
-  slamdb:
+  mongodb:
     image: mongo
     volumes:
     - mongodb-data:/data/db
