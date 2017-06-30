@@ -17,7 +17,8 @@ services:
   gogs:
     image: gogs/gogs:latest
     volumes:
-    - gogs-data:/data/gogs/conf/
+    - gogs-conf:/data/gogs/conf/
+    - gogs-data:/app/
     links:
     - mysql:database
     labels:
