@@ -25,6 +25,6 @@ services:
     volumes:
     - logstash-i01-config:/etc/logstash
     ports:
-    - 9000:9000
+    - 5044:5044
     labels:
       io.rancher.scheduler.affinity:host_label: ingest=1
