@@ -2,7 +2,7 @@ version: '2'
 services:
       
   elastic-m01:
-    image: sebp/elk
+    image: sebp/elk:550
     environment:
       ES_HEAP_SIZE: 4g
       KIBANA_START: 0
@@ -15,7 +15,7 @@ services:
       io.rancher.scheduler.affinity:host_label: data-1=1
       
   elastic-m02:
-    image: sebp/elk
+    image: sebp/elk:550
     environment:
       ES_HEAP_SIZE: 4g
       KIBANA_START: 0
@@ -28,7 +28,7 @@ services:
       io.rancher.scheduler.affinity:host_label: data-3=1
       
   elastic-d01:
-    image: sebp/elk
+    image: sebp/elk:550
     environment:
       ES_HEAP_SIZE: 16g
       KIBANA_START: 0
@@ -42,7 +42,7 @@ services:
       io.rancher.scheduler.affinity:host_label: data-2=1
       
   elastic-d02:
-    image: sebp/elk
+    image: sebp/elk:550
     environment:
       ES_HEAP_SIZE: 16g
       KIBANA_START: 0
@@ -56,7 +56,7 @@ services:
       io.rancher.scheduler.affinity:host_label: data-4=1
       
   elastic-d03:
-    image: sebp/elk
+    image: sebp/elk:550
     environment:
       ES_HEAP_SIZE: 16g
       KIBANA_START: 0
