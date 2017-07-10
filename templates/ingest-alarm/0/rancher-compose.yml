@@ -3,12 +3,12 @@ version: '2'
   version: "1.0.0"
   minimum_rancher_version: v1.6.2
 
-elastic-i01:
+elastic-i02:
   scale: 1
   retain_ip: true
   start_on_create: true
 
-logstash-d01:
+logstash-d02:
   scale: 1
   retain_ip: true
   start_on_create: true
