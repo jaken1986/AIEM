@@ -2,7 +2,7 @@ version: '2'
 services:
 
   elastic-i02:
-    image: sebp/elk:550
+    image: sebp/elk:540
     environment:
       ES_HEAP_SIZE: 4g
       KIBANA_START: 0
@@ -15,7 +15,7 @@ services:
       io.rancher.scheduler.affinity:host_label: ingest=1
 
   logstash-d02:
-    image: sebp/elk:550
+    image: sebp/elk:540
     environment:
       ELASTICSEARCH_START: 0
       KIBANA_START: 0
