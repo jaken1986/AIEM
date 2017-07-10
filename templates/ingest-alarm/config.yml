@@ -1,0 +1,4 @@
+name: "Log Ingestion Module"
+description: "Log Ingestion Application"
+version: "1.0.0"
+category: Application

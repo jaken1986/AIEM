@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+  elastic-i01:
+    image: sebp/elk
+    environment:
+      ES_HEAP_SIZE: 4g
+      KIBANA_START: 0
+      LOGSTASH_START: 0
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - elastic-i01-config:/etc/elasticsearch
+    labels:
+      io.rancher.scheduler.affinity:host_label: ingest=1
+    networks:
+      - aiem
+
+  logstash-d01:
+    image: sebp/elk
+    environment:
+      ELASTICSEARCH_START: 0
+      KIBANA_START: 0
+      LS_HEAP_SIZE: 2g
+      MAX_OPEN_FILES: 65536
+      TZ: America/Chicago
+    volumes:
+    - logstash-i01-config:/etc/logstash
+    labels:
+      io.rancher.scheduler.affinity:host_label: ingest=1
+    networks:
+      - aiem
