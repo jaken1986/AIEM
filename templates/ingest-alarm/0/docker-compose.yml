@@ -1,7 +1,7 @@
 version: '2'
 services:
 
-  elastic-i01:
+  elastic-i02:
     image: sebp/elk
     environment:
       ES_HEAP_SIZE: 4g
@@ -16,7 +16,7 @@ services:
     networks:
       - aiem
 
-  logstash-d01:
+  logstash-d02:
     image: sebp/elk
     environment:
       ELASTICSEARCH_START: 0
