@@ -1,4 +1,4 @@
-name: "Log Ingestion Module"
-description: "Log Ingestion Application"
+name: "Alarm Ingestion Module"
+description: "Alarm Ingestion Application"
 version: "1.0.0"
 category: Application

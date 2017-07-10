@@ -1,4 +1,4 @@
-name: "ThreatBeat Module"
-description: "Threatbeat Response Application"
+name: "ThreatIntel Module"
+description: "ThreatIntel GTIC Application"
 version: "1.0.0"
 category: Application
