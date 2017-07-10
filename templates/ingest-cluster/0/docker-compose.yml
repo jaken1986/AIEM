@@ -23,7 +23,7 @@ services:
       MAX_OPEN_FILES: 65536
       TZ: America/Chicago
     volumes:
-    - logstash-i01-config:/etc/logstash
+    - logstash-d01-config:/etc/logstash
     ports:
     - 5044:5044
     labels:
