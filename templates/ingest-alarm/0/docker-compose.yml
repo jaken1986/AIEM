@@ -10,7 +10,7 @@ services:
       MAX_OPEN_FILES: 65536
       TZ: America/Chicago
     volumes:
-    - elastic-i01-config:/etc/elasticsearch
+    - elastic-i02-config:/etc/elasticsearch
     labels:
       io.rancher.scheduler.affinity:host_label: ingest=1
     networks:
@@ -25,7 +25,7 @@ services:
       MAX_OPEN_FILES: 65536
       TZ: America/Chicago
     volumes:
-    - logstash-i01-config:/etc/logstash
+    - logstash-d02-config:/etc/logstash
     ports:
     - 5045:5045/tcp
     labels:
