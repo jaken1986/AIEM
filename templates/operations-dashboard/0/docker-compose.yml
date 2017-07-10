@@ -2,7 +2,7 @@ version: '2'
 services:
 
   kibana-d01:
-    image: sebp/elk:550
+    image: sebp/elk:540
     environment:
       ELASTICSEARCH_START: 0
       LOGSTASH_START: 0
