@@ -21,11 +21,14 @@ services:
       io.rancher.scheduler.affinity:host_label: hub=1
       
   misp-db:
-    image: mysql/mysql-server:latest
-     volumes:
-      - misp-mysql:/var/lib/mysql
+     image: mysql:latest
+    environment:
+       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
+    volumes:
+    - misp-data:/var/lib/mysql/
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
+    tty: true
 
   yeti:
     image: cogniteev/oracle-java
