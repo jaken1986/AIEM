@@ -4,6 +4,7 @@ services:
   misp:
     build: https://github.com/xme/misp-docker.git#master
     environment:
+      - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
       - MYSQL_HOST=misp-db
       - MISP_ADMIN_EMAIL=info@optivmss.com
@@ -21,8 +22,6 @@ services:
       
   misp-db:
     image: mysql/mysql-server:latest
-    environment:
-      - MYSQL_ROOT_PASSWORD=Optiv@dm1n
      volumes:
       - misp-mysql:/var/lib/mysql
     labels:
