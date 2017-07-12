@@ -32,4 +32,4 @@ services:
   yeti:
     image: cogniteev/oracle-java
     labels:
-      io.rancher.scheduler.affinity:host_label: report=1
+      io.rancher.scheduler.affinity:host_label: hub=1
