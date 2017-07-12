@@ -3,17 +3,17 @@ version: '2'
   version: "1.0.0"
   minimum_rancher_version: v1.6.2
 
-elasticsearch:
+misp:
     scale: 1
     retain_ip: true
     start_on_create: true
 
-cortex:
+misp-db:
     scale: 1
     retain_ip: true
     start_on_create: true
 
-thehive:
+yeti:
     scale: 1
     retain_ip: true
     start_on_create: true
