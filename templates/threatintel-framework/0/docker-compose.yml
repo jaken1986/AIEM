@@ -21,7 +21,7 @@ services:
       io.rancher.scheduler.affinity:host_label: hub=1
       
   misp-db:
-     image: mysql:latest
+    image: mysql:latest
     environment:
        - MYSQL_ROOT_PASSWORD=Optiv@dm1n
     volumes:
