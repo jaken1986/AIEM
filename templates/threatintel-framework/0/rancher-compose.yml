@@ -8,11 +8,6 @@ misp:
     retain_ip: true
     start_on_create: true
 
-misp-db:
-    scale: 1
-    retain_ip: true
-    start_on_create: true
-
 yeti:
     scale: 1
     retain_ip: true
