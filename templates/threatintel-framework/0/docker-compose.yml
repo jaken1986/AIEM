@@ -6,13 +6,21 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
-      - MYSQL_HOST= misp
+      - MYSQL_HOST= misp-db
       - POSTFIX_RELAY_HOST=relay.aiem.portal.optivmss.com
       - MISP_BASEURL=intel.aiem.portal.optivmss.com
       - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
       - MISP_ADMIN_EMAIL=info@optivmss.com
       - TIMEZONE=America/Chicago
-    volumes:
-      - misp-db:/var/lib/mysql
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
+
+  misp-db:
+    image: mysql:latest
+    environment:
+       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
+    volumes:
+    - mysql-data:/var/lib/mysql/
+    labels:
+      io.rancher.scheduler.affinity:host_label: hub=1
+    tty: true
