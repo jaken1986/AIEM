@@ -2,7 +2,7 @@ version: '2'
 services:
 
   misp:
-    build: ehttps://github.com/xme/misp-docker.git#master
+    build: https://github.com/xme/misp-docker.git#master
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
