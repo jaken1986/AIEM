@@ -12,6 +12,9 @@ services:
       - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
       - MISP_ADMIN_EMAIL=info@optivmss.com
       - TIMEZONE=America/Chicago
+    volumes:
+     - /dev/urandom:/dev/random
+     - /data/misp:/var/www/MISP
     ports:
     - 80:80
     labels:
