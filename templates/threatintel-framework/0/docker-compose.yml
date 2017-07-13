@@ -2,32 +2,15 @@ version: '2'
 services:
 
   misp:
-    image: rootshell/misp
-    environment:
-      - MYSQL_ROOT_PASSWORD=Optiv@dm1n
-      - MYSQL_MISP_PASSWORD=Optiv@dm1n
-      - MYSQL_HOST=misp-db
-      - POSTFIX_RELAY_HOST=relay.aiem.portal.optivmss.com
-      - MISP_BASEURL=dev-hub.aiem.portal.optivmss.com
-      - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
-      - MISP_ADMIN_EMAIL=info@optivmss.com
-      - TIMEZONE=America/Chicago
+    build: https://github.com/Betsworth22/docker-misp.git
     volumes:
      - /dev/urandom:/dev/random
-     - /data/misp:/var/www/MISP
-    depends_on:
-     - misp-db
+     - misp-data:/var/www/MISP
+     - mysql-data:/var/lib/mysql
     ports:
     - 80:80
+    - 443:443
+    - 3306:3306
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
 
-  misp-db:
-    image: mysql:latest
-    environment:
-       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
-    volumes:
-    - mysql-data:/var/lib/mysql/
-    labels:
-      io.rancher.scheduler.affinity:host_label: hub=1
-    tty: true
