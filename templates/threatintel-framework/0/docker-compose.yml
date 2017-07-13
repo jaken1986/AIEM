@@ -2,7 +2,7 @@ version: '2'
 services:
 
   misp:
-    build: https://github.com/Betsworth22/docker-misp.git
+    build: https://github.com/Betsworth22/docker-misp.git#master:/container
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
 
