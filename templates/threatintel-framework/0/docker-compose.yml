@@ -2,7 +2,7 @@ version: '2'
 services:
 
   misp:
-    image: harvarditsecurity/misp
+    build: https://github.com/Betsworth22/docker-misp.git#master
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
