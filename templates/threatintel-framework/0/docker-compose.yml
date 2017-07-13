@@ -13,7 +13,7 @@ services:
       - MISP_ADMIN_EMAIL=info@optivmss.com
       - TIMEZONE=America/Chicago
     ports:
-    - 9000:9000
+    - 80:80
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
 
