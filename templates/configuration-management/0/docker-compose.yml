@@ -19,6 +19,8 @@ services:
     volumes:
     - gogs-conf:/data/gogs/conf/
     - gogs-data:/app/
+    depends_on:
+      - mysql
     links:
     - mysql:database
     labels:
