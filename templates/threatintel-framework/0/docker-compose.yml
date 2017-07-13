@@ -12,6 +12,8 @@ services:
       - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
       - MISP_ADMIN_EMAIL=info@optivmss.com
       - TIMEZONE=America/Chicago
+    ports:
+    - 9000:9000
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
 
