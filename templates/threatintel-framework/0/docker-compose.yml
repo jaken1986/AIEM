@@ -6,7 +6,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
-      - MYSQL_HOST= misp-db
+      - MYSQL_HOST=misp-db
       - POSTFIX_RELAY_HOST=relay.aiem.portal.optivmss.com
       - MISP_BASEURL=dev-hub.aiem.portal.optivmss.com
       - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
