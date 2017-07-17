@@ -1,9 +1,4 @@
 version: '2'
-
-networks:
-  misp-network:
-    driver: bridge
-
 services:
   misp-web:
     depends_on:
@@ -12,8 +7,6 @@ services:
     hostname: misp
     image: intel-docker:latest
     restart: always
-    networks:
-      - misp-network
     links:
       - misp-db
     expose:
@@ -38,8 +31,6 @@ services:
     hostname: mysql
     image: mysql/mysql-server:latest
     restart: always
-    networks:
-      - misp-network
     volumes:
       - /data/tmp/mysql:/var/lib/mysql
     environment:
