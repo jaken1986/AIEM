@@ -31,6 +31,8 @@ services:
       - MISP_BASEURL=http://dev-hub.aiem.portal.optivmss.com
       - POSTFIX_RELAY_HOST=relay.aiem.portal.optivmss.com
       - TIMEZONE=America/Chicago
+    labels:
+      io.rancher.scheduler.affinity:host_label: hub=1
 
   misp-db:
     container_name: misp-db
@@ -43,4 +45,6 @@ services:
       - /data/tmp/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
+      labels:
+        io.rancher.scheduler.affinity:host_label: hub=1
 
