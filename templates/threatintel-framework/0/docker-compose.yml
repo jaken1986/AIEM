@@ -1,5 +1,6 @@
 version: '2'
 services:
+
   misp-web:
     depends_on:
       - misp-db
