@@ -45,6 +45,6 @@ services:
       - /data/tmp/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
-      labels:
-        io.rancher.scheduler.affinity:host_label: hub=1
+    labels:
+      io.rancher.scheduler.affinity:host_label: hub=1
 
