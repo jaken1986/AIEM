@@ -1,23 +1,46 @@
 version: '2'
+
+networks:
+  misp-network:
+    driver: bridge
+
 services:
-
- misp-db:
-    build: https://github.com/Betsworth22/docker-misp.git#master:container/
-    stdin_open: true
+  misp-web:
+    build: .
+    depends_on:
+      - misp-db
+    container_name: misp-web
+    hostname: misp
+    image: misp:latest
+    restart: always
+    networks:
+      - misp-network
+    links:
+      - misp-db
+    expose:
+      - 80
     volumes:
-    - misp-db:/var/lib/mysql
-    tty: true
-    command: /init-db
-    labels:
-      io.rancher.scheduler.affinity:host_label: report=1
+      - /dev/urandom:/dev/random
+      - /data/misp:/var/www/MISP
+    environment:
+      - MYSQL_ROOT_PASSWORD=Optiv@dm1n
+      - MYSQL_MISP_PASSWORD=Optiv@dm1n
+      - MYSQL_HOST=misp-db
+      - MISP_ADMIN_EMAIL=admin@optivmss.com
+      - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
+      - MISP_BASEURL=http://dev-hub.aiem.portal.optivmss.com
+      - POSTFIX_RELAY_HOST=relay.aiem.portal.optivmss.com
+      - TIMEZONE=America/Chicago
 
- misp:
-    build: https://github.com/Betsworth22/docker-misp.git#master:container/
-    stdin_open: true
-    tty: true
-    volumes_from:
-    - misp-db
-    labels:
-      io.rancher.scheduler.affinity:host_label: report=1
-      io.rancher.sidekicks: misp-db
+  misp-db:
+    container_name: misp-db
+    hostname: mysql
+    image: mysql/mysql-server:latest
+    restart: always
+    networks:
+      - misp-network
+    volumes:
+      - /data/tmp/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=Optiv@dm1n
 
