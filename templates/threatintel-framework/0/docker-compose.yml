@@ -9,8 +9,8 @@ services:
     restart: always
     links:
       - misp-db
-    expose:
-      - 80
+    ports:
+      - 80:80
     volumes:
       - /dev/urandom:/dev/random
       - misp-data:/var/www/MISP
