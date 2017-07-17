@@ -14,6 +14,7 @@ services:
     volumes:
       - /dev/urandom:/dev/random
       - misp-data:/var/www/MISP
+    tty: true
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
