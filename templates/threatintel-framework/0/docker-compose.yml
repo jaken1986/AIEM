@@ -1,8 +1,22 @@
 version: '2'
 services:
 
-  misp:
-    build: https://github.com/Betsworth22/docker-misp.git#master:/container
+ misp:
+    build: https://github.com/Betsworth22/docker-misp.git#master:container/
+    stdin_open: true
+    tty: true
+    volumes_from:
+    - misp-db
+    labels:
+      io.rancher.scheduler.affinity:host_label: hub=1
+
+misp-db:
+    build: https://github.com/Betsworth22/docker-misp.git#master:container/
+    stdin_open: true
+    volumes:
+    - misp-db:/var/lib/mysql
+    tty: true
+    command: /init-db
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
 
