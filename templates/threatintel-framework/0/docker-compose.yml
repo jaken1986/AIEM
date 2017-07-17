@@ -9,7 +9,7 @@ services:
     tty: true
     command: /init-db
     labels:
-      io.rancher.scheduler.affinity:host_label: space=1
+      io.rancher.scheduler.affinity:host_label: search=1
 
  misp:
     build: https://github.com/Betsworth22/docker-misp.git#master:container/
@@ -18,6 +18,6 @@ services:
     volumes_from:
     - misp-db
     labels:
-      io.rancher.scheduler.affinity:host_label: space=1
+      io.rancher.scheduler.affinity:host_label: search=1
       io.rancher.sidekicks: misp-db
 
