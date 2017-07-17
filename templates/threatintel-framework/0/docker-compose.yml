@@ -29,7 +29,6 @@ services:
   misp-db:
     container_name: misp-db
     image: mysql/mysql-server:latest
-    alias: 
     restart: always
     volumes:
       - mysql-data:/var/lib/mysql
