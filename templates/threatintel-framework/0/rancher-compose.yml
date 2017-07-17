@@ -8,8 +8,3 @@ misp-db:
     scale: 1
     retain_ip: true
     start_on_create: true
-
-misp:
-    scale: 1
-    retain_ip: true
-    start_on_create: true
