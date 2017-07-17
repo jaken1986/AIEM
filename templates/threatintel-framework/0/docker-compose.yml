@@ -9,5 +9,15 @@ services:
     tty: true
     command: /init-db
     labels:
-      io.rancher.scheduler.affinity:host_label: hub=1
+      io.rancher.scheduler.affinity:host_label: space=1
+
+ misp:
+    build: https://github.com/Betsworth22/docker-misp.git#master:container/
+    stdin_open: true
+    tty: true
+    volumes_from:
+    - misp-db
+    labels:
+      io.rancher.scheduler.affinity:host_label: space=1
+      io.rancher.sidekicks: misp-db
 
