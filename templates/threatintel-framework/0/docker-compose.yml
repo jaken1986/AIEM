@@ -19,4 +19,5 @@ services:
     - misp-db
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
+      io.rancher.sidekicks: misp-db
 
