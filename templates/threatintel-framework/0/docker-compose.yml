@@ -11,7 +11,7 @@ services:
       - misp-db
     container_name: misp-web
     hostname: misp
-    image: misp:latest
+    image: intel-docker:latest
     restart: always
     networks:
       - misp-network
