@@ -31,7 +31,7 @@ services:
   misp-db:
     container_name: misp-db
     hostname: mysql
-    image: mysql/mysql-server:latest
+    image: mysql:latest
     restart: always
     volumes:
       - mysql-data:/var/lib/mysql
