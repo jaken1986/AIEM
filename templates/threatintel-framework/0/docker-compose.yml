@@ -9,6 +9,7 @@ services:
     - misp-db
     labels:
       io.rancher.scheduler.affinity:host_label: hub=1
+       io.rancher.sidekicks: misp-db
 
 misp-db:
     build: https://github.com/Betsworth22/docker-misp.git#master:container/
