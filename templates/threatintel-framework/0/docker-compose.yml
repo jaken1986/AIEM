@@ -19,7 +19,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
-      - MYSQL_HOST=mysql
+      - MYSQL_HOST=misp-db
       - MISP_ADMIN_EMAIL=admin@optivmss.com
       - MISP_ADMIN_PASSPHRASE=Optiv@dm1n
       - MISP_BASEURL=http://dev-hub.aiem.portal.optivmss.com
