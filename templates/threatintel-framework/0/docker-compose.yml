@@ -1,7 +1,7 @@
 version: '2'
 services:
 
-misp-db:
+ misp-db:
     build: https://github.com/Betsworth22/docker-misp.git#master:container/
     stdin_open: true
     volumes:
