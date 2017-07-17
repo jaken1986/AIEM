@@ -14,7 +14,7 @@ services:
       - 80
     volumes:
       - /dev/urandom:/dev/random
-      - /data/misp:/var/www/MISP
+      - misp-data:/var/www/MISP
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
       - MYSQL_MISP_PASSWORD=Optiv@dm1n
@@ -33,7 +33,7 @@ services:
     image: mysql/mysql-server:latest
     restart: always
     volumes:
-      - /data/tmp/mysql:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=Optiv@dm1n
     labels:
