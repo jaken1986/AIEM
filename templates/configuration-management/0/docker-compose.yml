@@ -19,6 +19,9 @@ services:
     volumes:
     - gogs-conf:/data/gogs/conf/
     - gogs-data:/app/
+    ports:
+    - 3000:3000
+    - 22:22
     depends_on:
       - mysql
     links:
