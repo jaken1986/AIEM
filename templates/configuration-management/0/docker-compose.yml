@@ -4,10 +4,10 @@ services:
   mysql:
     image: mysql:latest
     environment:
-       - MYSQL_ROOT_PASSWORD=fmPR7UuMBmKPV6Ps
+       - MYSQL_ROOT_PASSWORD=KwJZcEgVz3JQEU3W
        - MYSQL_DATABASE=gogs
        - MYSQL_USER=optivadmin
-       - MYSQL_PASSWORD=8waK9KZOJk1G3OXf
+       - MYSQL_PASSWORD=XYWt66EJEYbHPhBa
     volumes:
     - mysql-data:/var/lib/mysql/
     labels:
