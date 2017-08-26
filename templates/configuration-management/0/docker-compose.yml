@@ -4,10 +4,10 @@ services:
   mysql:
     image: mysql:latest
     environment:
-       - MYSQL_ROOT_PASSWORD=7HVTncDdXNbJrFCM
+       - MYSQL_ROOT_PASSWORD="RootPassword"
        - MYSQL_DATABASE=gogs
-       - MYSQL_USER=optivadmin
-       - MYSQL_PASSWORD=BmHrC7qy9qTFQ4cG
+       - MYSQL_USER="mysqluser"
+       - MYSQL_PASSWORD="sqluserpassword"
     volumes:
     - mysql-data:/var/lib/mysql/
     labels:
@@ -20,8 +20,8 @@ services:
     - gogs-conf:/data/gogs/conf/
     - gogs-data:/app/
     ports:
-    - 10080:3000
-    - 10022:22
+    - "port":3000
+    - "port":22
     depends_on:
       - mysql
     links:
