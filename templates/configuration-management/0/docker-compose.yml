@@ -17,7 +17,7 @@ services:
   gogs:
     image: gogs/gogs:latest
     volumes:
-    - gogs-conf:/data/gogs/conf/
+    - gogs-conf:/data
     - gogs-data:/app/
     ports:
     - "port":3000
